@@ -8,22 +8,32 @@ public class Product {
     private ProductCategory category;
     private String description;
     private LocalDate deliveryDate;
+    private Double price;
     private int amount;
 
-    public Product(String name, ProductCategory category, int amount) {
-        this(name, category, "", LocalDate.now(), amount);
+    public Product(String name, Double price, ProductCategory category, int amount) {
+        this(name, price, category, "", LocalDate.now(), amount);
     }
 
-    public Product(String name, ProductCategory category, String description, LocalDate deliveryDate, int amount) {
+    public Product(String name, Double price, ProductCategory category, String description, LocalDate deliveryDate, int amount) {
         this.name = name;
         this.category = category;
         this.description = description;
         this.deliveryDate = deliveryDate;
         this.amount = amount;
+        this.price = price;
     }
 
     public boolean isAvailable() {
         return amount > 0;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
     }
 
     public String getName() {
@@ -82,7 +92,7 @@ public class Product {
     @Override
     public String toString() {
         return "name='" + name + '\'' +
-                ", category=" + category +
+                ", category=" + category.getDisplayName() +
                 ", description='" + description + '\'' +
                 ", deliveryDate=" + deliveryDate +
                 ", amount=" + amount +

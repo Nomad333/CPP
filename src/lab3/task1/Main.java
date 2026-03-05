@@ -1,5 +1,9 @@
 package lab3.task1;
 
+import lab3.task1.factory.Factory;
+import lab3.task1.factory.RandomProductFactory;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 
@@ -28,6 +32,23 @@ public class Main {
     Реалізувати пошук товарів за вказаною категорією.
      */
     public static void main(String[] args) {
+        // 8 масивів
+        Factory<Product> factory = new RandomProductFactory();
+        List<Product> products = new ArrayList<>(8);
+
+        for (int i = 0; i < 8; i++) {
+            products.add(factory.create());
+        }
+
+        System.out.println("___Вивід на консоль даних з усіх елементів масиву___");
+        for (var el : products) {
+            System.out.println(el);
+        }
+        System.out.println("___вивід даних лише тих елементів, які відповідають заданому у варіанті" +
+                "    завдання критерію___");
+        System.out.println(selectAll(products, Product::isAvailable));
+        System.out.println("___пошук в масиві та вивід на консоль об’єктів з вказаною властивістю.___");
+        System.out.println(selectAll(products, pr -> pr.getCategory() == ProductCategory.HOME));
     }
 
     public static List<Product> selectAll(List<Product> productList, Predicate<Product> pred) {
