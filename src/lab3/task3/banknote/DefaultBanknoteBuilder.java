@@ -13,7 +13,7 @@ public class DefaultBanknoteBuilder implements BanknoteBuilder {
     }
 
     @Override
-    public BanknoteBuilder nominal(int nominal, int count) {
+    public BanknoteBuilder put(int nominal, int count) {
         for (int i = 0; i < count; i++) {
             banknotes.add(new Banknote(nominal, symbol));
         }
@@ -25,5 +25,9 @@ public class DefaultBanknoteBuilder implements BanknoteBuilder {
         List<Banknote> result = new ArrayList<>(banknotes);
         banknotes.clear();
         return result;
+    }
+
+    public char getSymbol() {
+        return symbol;
     }
 }

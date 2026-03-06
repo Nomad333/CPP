@@ -1,5 +1,11 @@
 package lab3.task3;
 
+import lab3.task3.banknote.DefaultBanknoteBuilder;
+import lab3.task3.exeptions.BalanceException;
+import lab3.task3.exeptions.BanknoteAmountExeption;
+import lab3.task3.exeptions.NominalExeption;
+import lab3.task3.exeptions.WithdrawException;
+
 public class Main {
     /*
     Завдання 3. Створіть клас “Банк”, якому належить мережа АТМ
@@ -20,7 +26,20 @@ public class Main {
     виходимо з мінімізації їхньої кількості. Для реалізації завдання побудуйте
 ієрархію класів-винятків користувача.
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NominalExeption, BalanceException, BanknoteAmountExeption, WithdrawException {
+        int atmCount = 5;
+        char symbol = '$';
+        var nominals = new int[]{1, 2, 5, 10, 20, 50, 100, 200, 500};
+        var banknotesPerATM = new DefaultBanknoteBuilder(symbol)
+                .put(1, 50)
+                .put(2, 50)
+                .put(5, 10)
+                .put(50, 20)
+                .build();
 
+        Bank bank = new Bank(atmCount, new DefaultBanknoteBuilder(symbol), nominals, banknotesPerATM);
+        System.out.println(bank);
+        System.out.println(bank.getAtms().get(0).withdraw(1200));
+        System.out.println(bank.getAtms().get(0));
     }
 }
