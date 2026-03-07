@@ -118,7 +118,7 @@ public class Game2048 implements Game {
         textCells = new ArrayList<>();
 
         for (int i = 0; i < rows * cols; i++) {
-            int[] range = {0, 2, 4};
+            int[] range = {0, 2};
             intCells.add(new IntCell(range[i % (range.length)]));
         }
 
@@ -144,22 +144,6 @@ public class Game2048 implements Game {
         }
         return column;
     }
-
-//    private void leftMerge(List<IntCell> left, List<IntCell> right) {
-//        for (int i = 0; i < left.size(); i++) {
-//            var leftEl = left.get(i);
-//            var rightEl = right.get(i);
-//            if (leftEl.getNumber() == rightEl.getNumber()) {
-//                leftEl.setNumber(leftEl.getNumber() * 2, true);
-//                rightEl.setNumber(0, true);
-//                isMergedFlag = true;
-//            } else if (leftEl.getNumber() == 0 && rightEl.getNumber() != 0) {
-//                leftEl.setNumber(rightEl.getNumber(), true);
-//                rightEl.setNumber(0, true);
-//                isMergedFlag = true;
-//            }
-//        }
-//    }
 
     private void merge(List<IntCell> cells, boolean reverse) {
         if (reverse) {
