@@ -1,6 +1,7 @@
 package lab5.task3.worker;
 
 import java.time.LocalDate;
+import java.time.Period;
 
 public interface Worker {
     String getName();
@@ -9,5 +10,7 @@ public interface Worker {
 
     LocalDate getBirthDate();
 
-    int getAge();
+    default int getAge() {
+        return Period.between(getBirthDate(), LocalDate.now()).getYears();
+    }
 }
