@@ -42,4 +42,16 @@ public class Book implements Publication {
     public Optional<String> searchByAuthor() {
         return Optional.of(author);
     }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public int getPages() {
+        return pages;
+    }
 }

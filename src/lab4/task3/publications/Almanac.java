@@ -37,4 +37,8 @@ public class Almanac implements Publication {
     public Optional<String> searchByAuthor() {
         return Optional.empty();
     }
+
+    public List<Book> getBooks() {
+        return books;
+    }
 }

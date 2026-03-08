@@ -41,4 +41,12 @@ public class Newspaper implements Publication {
     public Optional<String> searchByAuthor() {
         return Optional.empty();
     }
+
+    public LocalDate getReleaseDate() {
+        return releaseDate;
+    }
+
+    public List<String> getHeadlines() {
+        return headlines;
+    }
 }
