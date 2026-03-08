@@ -1,6 +1,7 @@
 package lab5.task4;
 
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.util.Scanner;
 
@@ -32,7 +33,7 @@ public class Main {
                 } else {
                     try {
                         Files.copy(file.toPath(), new File(toDir, file.getName()).toPath());
-                    } catch (java.io.IOException e) {
+                    } catch (IOException e) {
                         System.out.println("Error copying file: " + file.getName());
                     }
                 }
