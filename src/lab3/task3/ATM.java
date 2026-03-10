@@ -44,7 +44,7 @@ public class ATM {
         );
     }
 
-    public List<Banknote> withdraw(int amount) throws BalanceException, WithdrawException, BanknoteAmountExeption {
+    public List<Banknote> withdraw(int amount) throws WithdrawException {
         if (amount > maxWithdrawalAmount) throw new WithdrawException("maxWithdrawalAmount: " + maxWithdrawalAmount);
 
         List<Banknote> result = new ArrayList<>();

@@ -1,8 +1,6 @@
 package lab3.task3;
 
 import lab3.task3.banknote.DefaultBanknoteBuilder;
-import lab3.task3.exeptions.BalanceException;
-import lab3.task3.exeptions.BanknoteAmountExeption;
 import lab3.task3.exeptions.NominalExeption;
 import lab3.task3.exeptions.WithdrawException;
 
@@ -15,7 +13,7 @@ public class Main {
     завантаження туди певної суми коштів. Розробіть метод визначення загальної
     суми грошей, що знаходиться у мережі банкоматів.
     Розробіть клас “АТМ банкомат”. Сума, що є в наявності у банкоматі, має
-    бути подана певними номіналами банкнот (1, 2, 5, 10, 20, 50 100, 200, 500
+    бути подана певними номіналами банкнот (1, 2, 5, 10, 20, 50 100, 200, 500s
     гривень). До кожного номіналу банкнот визначено кількість купюр даного
     номіналу. Крім цього, банкомат зберігає у своїх полях максимальну для видачі
     суму, а також максимальну кількість банкнот, яка може бути видана через
@@ -26,7 +24,7 @@ public class Main {
     виходимо з мінімізації їхньої кількості. Для реалізації завдання побудуйте
 ієрархію класів-винятків користувача.
      */
-    public static void main(String[] args) throws NominalExeption, BalanceException, BanknoteAmountExeption, WithdrawException {
+    public static void main(String[] args) throws NominalExeption, WithdrawException {
         int atmCount = 5;
         char symbol = '$';
         var nominals = new int[]{1, 2, 5, 10, 20, 50, 100, 200, 500};
