@@ -13,7 +13,7 @@ public class TestMaven {
             System.out.println(props.getProperty("props.local.hello"));
             System.out.println(props.getProperty("props.mvn.hello"));
         } catch (Exception e) {
-            System.err.println(e);
+            System.err.println(e.getMessage());
         }
     }
 }
