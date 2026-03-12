@@ -6,7 +6,53 @@
 
     <groupId>brainacad-org</groupId>
     <artifactId>test-lib</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <resources>
+                        <resource>
+                            <directory>src/main/resources</directory>
+                            <filtering>true</filtering>
+                        </resource>
+                    </resources>
+                </configuration>
+            </plugin>
+
+            <plugin> <!-- підключення плагінів-->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration> <!-- налаштування плагіна-->
+                    <source>21</source>
+                    <target>21</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <test.message>Maven hello from dev</test.message>
+            </properties>
+        </profile>
+        <profile>
+            <id>prod</id>
+            <properties>
+                <test.message>Maven hello from prod</test.message>
+            </properties>
+        </profile>
+    </profiles>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
