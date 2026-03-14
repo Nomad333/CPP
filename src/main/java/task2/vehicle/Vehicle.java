@@ -2,7 +2,7 @@ package task2.vehicle;
 
 public interface Vehicle {
     String getName();
-    String getMaxWeight();
+    Integer getMaxWeight();
     VehicleStatus getStatus();
     void setStatus(VehicleStatus status);
 }
